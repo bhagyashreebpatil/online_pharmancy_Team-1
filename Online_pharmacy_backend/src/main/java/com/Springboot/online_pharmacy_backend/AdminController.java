@@ -1,9 +1,12 @@
 package com.Springboot.online_pharmacy_backend;
 
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,8 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/admin")
-@CrossOrigin(origins = "http://localhost:5174")
+@CrossOrigin(origins = "http://localhost:5173")
 public class AdminController {
+	
+  @Autowired
+  private AdminRepository adminRepo;
+
+ 
 
   @Autowired
   private AdminService service;
@@ -27,4 +35,17 @@ public class AdminController {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
     }
   }
+  
+  @PostMapping("/login")
+  public ResponseEntity<?> login(@RequestBody LoginRequest request) {
+      boolean isValid = service.authenticate(request.getEmail(), request.getPassword());
+
+      if (isValid) {
+          return ResponseEntity.ok("Login successful");
+      } else {
+          return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
+      }
+  }
+
+
 }
