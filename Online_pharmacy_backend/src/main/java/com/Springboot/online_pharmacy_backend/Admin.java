@@ -1,9 +1,10 @@
 package com.Springboot.online_pharmacy_backend;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class Admin {
@@ -13,7 +14,9 @@ public class Admin {
     private Long id;
 
     private String name;
+    @Column(unique = true, nullable = false)
     private String email;
+
     private String password;
 
     // 🔹 Getters
