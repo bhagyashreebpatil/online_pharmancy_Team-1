@@ -26,18 +26,18 @@ const UserRegisterForm = () => {
 
   return (
    <>
-    <div className="page-container">
+    <div className="user-register-container">
     <div className="image-section">
-        <img className="user-img" src={user} alt="User_Img" />
+        <img className="user-register-img" src={user} alt="User_Img" />
     </div>
     <div className="form-section">
     <div className="registration-box">
 
     <form className="registration-wrapper" onSubmit={handleSubmit}>
       <h2>User Registration</h2>
-      <input type="text" name="username" className="text-bar" placeholder="User Name" onChange={handleChange} required /><br /><br />
-      <input type="email" name="email" className="text-bar" placeholder="Email" onChange={handleChange} required  /><br /><br />
-      <input type="password" name="password" className="text-bar" placeholder="Password" onChange={handleChange} required /><br /><br />
+      <input type="text" name="username"  placeholder="User Name" onChange={handleChange} required /><br /><br />
+      <input type="email" name="email" placeholder="Email" onChange={handleChange} required  /><br /><br />
+      <input type="password" name="password"  placeholder="Password" onChange={handleChange} required /><br /><br />
       <button type="submit">Register</button>
     </form>
             </div>

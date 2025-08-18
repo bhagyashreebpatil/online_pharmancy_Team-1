@@ -1,5 +1,6 @@
 package com.Springboot.online_pharmacy_backend;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -14,12 +15,13 @@ public class User {
     private Long id;
 
     private String username;
+    @Column(unique = true, nullable = false)
     private String email;
     private String password;
 
     @Enumerated(EnumType.STRING)
     private Role role;
-
+    
     // Getters
     public Long getId() { return id; }
     public String getUserName() { return username; }

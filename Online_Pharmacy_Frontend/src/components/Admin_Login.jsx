@@ -28,9 +28,9 @@ const AdminLogin = () => {
 
   return(
     <>
-    <div className="login-container">
+    <div className="admin-login-container">
       <div>
-        <img className="login-background-img" src={adminLoginImg} alt="adminLoginImg" />
+        <img className="admin-login-background-img" src={adminLoginImg} alt="adminLoginImg" />
       </div>
       <h2>Admin Login</h2>
       <form onSubmit={handleLogin}>

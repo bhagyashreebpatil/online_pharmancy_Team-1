@@ -1,6 +1,8 @@
 package com.Springboot.online_pharmacy_backend;
 
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -9,7 +11,11 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+    
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -27,6 +33,24 @@ public class UserService {
         return "User registered successfully";
     }
     
+    public boolean authenticate(String email, String password) {
+        Optional<User> userOpt = userRepository.findByEmail(email);
+        if (userOpt.isPresent()) {
+            User user = userOpt.get();
+
+            // ✅ Check password using PasswordEncoder
+            if (passwordEncoder.matches(password, user.getPassword())) {
+                return true; // Login successful
+            } else {
+                return false; // Password incorrect
+            }
+        } else {
+            return false; // Email not found
+        }
+
+    }
+   
+
 
   
 }
