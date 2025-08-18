@@ -1,4 +1,4 @@
-package com.Springboot.online_pharmacy_backend;
+package com.Springboot.online_pharmacy_backend.dto;
 
 
 public class LoginRequest {

@@ -1,4 +1,4 @@
-package com.Springboot.online_pharmacy_backend;
+package com.Springboot.online_pharmacy_backend.controller;
 
 import java.util.Map;
 
@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.Springboot.online_pharmacy_backend.model.User;
+import com.Springboot.online_pharmacy_backend.service.UserService;
 
 @RestController
 @RequestMapping("/api/user")
@@ -30,20 +33,6 @@ public class UserController {
         }
     }
     
-//    @PostMapping("/login")
-//    public ResponseEntity<?> login(@RequestBody Map<String, String> credentials) {
-//        String email = credentials.get("email");
-//        String password = credentials.get("password");
-//
-//        boolean isAuthenticated = userService.authenticate(email, password);
-//        if (isAuthenticated) {
-//            return ResponseEntity.ok("Login successful");
-//        } else {
-//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
-//            
-//        }
-//    
-//    }
     
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Map<String, String> credentials) {

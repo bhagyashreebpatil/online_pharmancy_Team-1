@@ -1,4 +1,5 @@
-package com.Springboot.online_pharmacy_backend;
+package com.Springboot.online_pharmacy_backend.model;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -53,3 +54,4 @@ public class Admin {
         this.password = password;
     }
 }
+

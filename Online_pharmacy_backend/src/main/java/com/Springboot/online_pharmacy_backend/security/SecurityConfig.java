@@ -1,4 +1,4 @@
-package com.Springboot.online_pharmacy_backend;
+package com.Springboot.online_pharmacy_backend.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,3 +31,4 @@ public class SecurityConfig {
 
 
 }
+
