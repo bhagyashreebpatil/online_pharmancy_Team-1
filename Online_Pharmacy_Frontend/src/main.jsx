@@ -5,12 +5,14 @@ import './index.css'
 import AdminRegister from './components/Admin_Register.jsx'
 import UserRegisterForm from './components/User_Register.jsx'
 import AdminLogin from './components/Admin_Login.jsx'
+import UserLogin from './components/User_Login.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     {/* <App /> */}
-    {/* <AdminRegister /> */}
+    <AdminRegister /> 
     {/* <UserRegisterForm /> */}
-    <AdminLogin />
+    {/* <AdminLogin /> */}
+    {/* <UserLogin /> */}
   </StrictMode>,
 )

@@ -1,0 +1,81 @@
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+.user-background-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  filter: blur(2px);
+}
+
+.user-login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.user-login-form {
+  background: rgba(21, 21, 21, 0.744);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 40px 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  text-align: center;
+  color: #fff;
+}
+
+.user-login-form h2 {
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.user-login-form input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 10px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.user-login-form input:focus {
+  border: 1px solid #f6f6f7;
+  outline: none;
+  box-shadow: 0 0 5px rgba(232, 234, 235, 0.847);
+}
+.user-login-form input::placeholder {
+  color: #e0e0e0;
+}
+
+.user-login-form button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: rgb(46, 219, 219);
+  color: rgb(1, 0, 5);
+  font-size: 16px;
+  font-weight: 550;
+  cursor: pointer;
+}
+
+.user-login-form button:hover {
+  background-color: #0b7cf4;
+  color: white;
+}

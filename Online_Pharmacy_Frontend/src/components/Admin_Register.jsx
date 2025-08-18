@@ -28,9 +28,9 @@ const AdminRegister = () => {
   return (
     <>
     <div>
-      <img className="background-img" src={AdminImg} alt="adminImg" />
+      <img className="admin-background-img" src={AdminImg} alt="adminImg" />
     </div>
-    <form className="form-container" onSubmit={handleSubmit}>
+    <form className="admin-form-container" onSubmit={handleSubmit}>
       <h2>Admin Registration</h2>
       <input type="text" name="name" placeholder="Name" onChange={handleChange} required /><br /><br />
       <input type="email" name="email" placeholder="Email" onChange={handleChange} required  /><br /><br />
