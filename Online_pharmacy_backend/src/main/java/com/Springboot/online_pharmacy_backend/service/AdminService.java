@@ -1,10 +1,14 @@
-package com.Springboot.online_pharmacy_backend;
+package com.Springboot.online_pharmacy_backend.service;
+
 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import com.Springboot.online_pharmacy_backend.model.Admin;
+import com.Springboot.online_pharmacy_backend.repository.AdminRepository;
 
 @Service
 public class AdminService {
