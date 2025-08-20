@@ -15,7 +15,7 @@ import com.Springboot.online_pharmacy_backend.dto.LoginRequest;
 
 	@RestController
 	@RequestMapping("/api/admin")
-	@CrossOrigin(origins = "http://localhost:5173")
+	@CrossOrigin(origins = "http://localhost:5174")
 	public class AdminController {
 		
 	  @Autowired

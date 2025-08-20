@@ -1,19 +1,33 @@
-// import React from "react";
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import AdminLogin from "../components/Admin_Login.jsx";
-// import AdminRegister from "./components/Admin_Register.jsx";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import UserLogin from './components/user/User_Login';
+import UserRegisterForm from './components/user/User_Register';
+import AdminLogin from './components/Admin/Admin_Login';
+import AdminRegister from './components/Admin/Admin_Register';
+import Navbar from './components/Shared/Navbar';
 
-// function App() {
-  
-//   return (
-//     <BrowserRouter>
-//       <Routes>
-//         <Route path="/" element={<AdminLogin />} />
-//         <Route path="/admin/register" element={<AdminRegister />} />
-//       </Routes>
-//     </BrowserRouter>
-//   );
 
-// }
+// Add other imports like AdminLogin, AdminRegister if needed
 
-// export default App
+function App() {
+  return (
+    <Router>
+      <Navbar />
+      <Routes>
+        {/* User Routes */}
+        <Route path="/user/login" element={<UserLogin />} />
+        <Route path="/user/register" element={<UserRegisterForm />} />
+
+        {/* Optional: Admin Routes */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin/register" element={<AdminRegister />} />
+        
+        {/* Optional: Home or fallback */}
+        <Route path="/" element={<UserLogin />} />
+
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;

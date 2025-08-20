@@ -1,18 +1,8 @@
 
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to right, #3d5771, #3498db);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    box-sizing: border-box;
-}
-
 .admin-login-container {
     background: rgb(255, 254, 254);
     padding: 40px 30px;
+    margin: 40px auto;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(92, 91, 91, 0.842);
     width: 300px;

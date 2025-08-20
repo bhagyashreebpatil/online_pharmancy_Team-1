@@ -1,26 +1,16 @@
 
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  overflow: hidden;
-}
-
 .user-background-img {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 100px;
   width: 100vw;
   height: 100vh;
   object-fit: cover;
   z-index: -1;
   filter: blur(2px);
 }
-
 .user-login-container {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
+  margin: 50px 400px;
 }
 
 .user-login-form {

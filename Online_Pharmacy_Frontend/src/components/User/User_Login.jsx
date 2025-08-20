@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../styles/UserLogin.css'; // Optional: for styling
-import UserLoginPhoto from '../media/UserLoginPhoto.png'; // Replace with your image path
+import '../../styles/User/User_Login.css'; // Optional: for styling
+import UserLoginPhoto from '../../media/UserLoginPhoto.png'; // Replace with your image path
+import { Link } from 'react-router-dom';
+
 
 const UserLogin = () => {
   const [email, setEmail] = useState('');
@@ -58,6 +60,13 @@ const UserLogin = () => {
         />
 
         <button type="submit">Login</button>
+        {/* <div style={{ marginTop: "1rem", textAlign: "center" }}>
+          <span>Don't have an account? </span>
+          <Link to="/user/register" style={{ color: "#007bff", textDecoration: "none" }}>
+            Sign up
+          </Link>
+        </div> */}
+
       </form>
     </div>
     </>

@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';  
-import '../styles/Admin_Login.css';
-import adminLoginImg from '../media/adminLoginImg.jpg'; 
+import '../../styles/Admin/Admin_Login.css'; // Adjust the path as necessary
+import adminLoginImg from '../../media/adminLoginImg.jpg'; // Replace with your image path
+import { useNavigate } from 'react-router-dom';
 
 
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
   e.preventDefault();
@@ -18,6 +20,7 @@ const AdminLogin = () => {
 
     if (response.status === 200) {
       alert("Login successful!");
+
     }
   } catch (error) {
     console.error("Login error:", error);
@@ -28,6 +31,7 @@ const AdminLogin = () => {
 
   return(
     <>
+    <div>
     <div className="admin-login-container">
       <div>
         <img className="admin-login-background-img" src={adminLoginImg} alt="adminLoginImg" />
@@ -52,6 +56,7 @@ const AdminLogin = () => {
         />
         <button type="submit">Login</button>
       </form>
+    </div>
     </div>
   </>
   )

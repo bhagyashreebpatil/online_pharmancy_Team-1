@@ -2,8 +2,9 @@
 .user-register-container {
   display: flex;
   width: 60%;
-  margin: 50px auto;
-  height: 500px;
+  margin: 40px auto;
+  height: 400px;
+  width: 700px;
   background-color: white;
   border: 1px solid rgb(236, 235, 235);
   border-radius: 20px;
