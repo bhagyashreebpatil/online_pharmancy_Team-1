@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../styles/User_Register.css';
-import user from '../media/user.jpg'; // Assuming you have a user image in assets
+import '../../styles/User/User_Register.css'; // Optional: for styling
+import user from '../../media/user.jpg'; // Assuming you have a user image in assets
 
 const UserRegisterForm = () => {
   const [userData, setUserData] = useState({

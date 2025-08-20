@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../styles/Admin_Register.css';
-import AdminImg from '../media/AdminImg.jpg'; 
+import '../../styles/Admin/Admin_Register.css'; // Adjust the path as necessary
+import AdminImg from '../../media/AdminImg.jpg'; // Replace with your image path
 
 const AdminRegister = () => {
   const [admin, setAdmin] = useState({
