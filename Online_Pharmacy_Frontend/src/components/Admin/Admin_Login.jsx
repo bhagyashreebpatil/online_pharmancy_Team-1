@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';  
 import '../../styles/Admin/Admin_Login.css'; // Adjust the path as necessary
 import adminLoginImg from '../../media/adminLoginImg.jpg'; // Replace with your image path
-import { useNavigate } from 'react-router-dom';
+import { Router, useNavigate } from 'react-router-dom';
+import Navbar from '../Shared/Navbar';
 
 
 const AdminLogin = () => {
@@ -20,6 +21,7 @@ const AdminLogin = () => {
 
     if (response.status === 200) {
       alert("Login successful!");
+      navigate("/admin/dashboard");
 
     }
   } catch (error) {

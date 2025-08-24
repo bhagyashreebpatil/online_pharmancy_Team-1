@@ -20,7 +20,7 @@ import com.Springboot.online_pharmacy_backend.service.UserService;
 
 @RestController
 @RequestMapping("/api/user")
-@CrossOrigin(origins = "http://localhost:5174")
+@CrossOrigin(origins = "http://localhost:5173")
 
 public class UserController {
 
