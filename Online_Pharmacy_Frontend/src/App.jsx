@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { DashboardProvider } from './components/Admin/DashboardContext';
 import UserLogin from './components/user/User_Login';
 import UserRegisterForm from './components/user/User_Register';
 import AdminLogin from './components/Admin/Admin_Login';
@@ -7,6 +8,8 @@ import AdminRegister from './components/Admin/Admin_Register';
 import Navbar from './components/Shared/Navbar';
 import AdminDashboard from './components/Admin/Admin_Dashboard';
 import ManageMembers from './components/Admin/Manage_Members';
+import ManageDrugs from './components/Admin/Manage_Drugs';
+import AdminHome from './components/Admin/AdminHome';
 
 
 const AppRoutes = () => {
@@ -32,10 +35,10 @@ const AppRoutes = () => {
         <Route path="/admin/register" element={<AdminRegister />} />
         <Route path="/" element={<UserLogin />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />}>
+          <Route index element={<AdminHome />} />
           <Route path="manage-members" element={<ManageMembers />} />
-          {/* Add more nested routes here */}
+          <Route path="manage-drugs" element={<ManageDrugs />} />
         </Route>
-
       </Routes>
     </>
   );
@@ -48,7 +51,9 @@ function App() {
   return (
     <>
     <Router>
-      <AppRoutes />
+      <DashboardProvider>
+        <AppRoutes />
+      </DashboardProvider>
     </Router>
     </>
   );

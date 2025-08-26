@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import '../../styles/Admin/Manage_Members.css';
+import { DashboardContext } from './DashboardContext';
 
 const ManageMembers = () => {
+  const { setMemberCount } = useContext(DashboardContext);
   const [members, setMembers] = useState([]);
   const [view, setView] = useState('list'); // 'list' | 'add' | 'update'
   const [selectedMember, setSelectedMember] = useState(null);
@@ -12,6 +14,7 @@ const ManageMembers = () => {
     fetch('http://localhost:5000/api/members')
       .then(res => res.json())
       .then(data => setMembers(data))
+      .then(data => setMemberCount(data.length))
       .catch(err => console.error('Fetch failed:', err));
   }, []);
 
@@ -81,7 +84,7 @@ const ManageMembers = () => {
         <>
           <div className="header">
             <h2>👥 Manage Members</h2>
-            <button className="add-btn" onClick={handleAddClick}>➕ Add Member</button>
+            <button className="member-add-btn" onClick={handleAddClick}>➕ Add Member</button>
           </div>
           <p>Total Members: {members.length}</p>
           <table className="members-table">
