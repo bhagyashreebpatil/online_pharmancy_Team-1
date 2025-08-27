@@ -10,7 +10,7 @@ const AdminLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
+  
   const handleLogin = async (e) => {
   e.preventDefault();
   try {
@@ -39,7 +39,7 @@ const AdminLogin = () => {
         <img className="admin-login-background-img" src={adminLoginImg} alt="adminLoginImg" />
       </div>
       <h2>Admin Login</h2>
-      <form onSubmit={handleLogin}>
+      <form onSubmit={handleLogin} autoComplete="off">
         <input
           name="email"
           type="text"
