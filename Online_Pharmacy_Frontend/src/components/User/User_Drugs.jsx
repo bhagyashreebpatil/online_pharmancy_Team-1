@@ -17,6 +17,25 @@ const UserDrugs = () => {
       .catch(err => console.error('Failed to fetch drugs:', err));
   }, []);
 
+  // useEffect(() => {
+  // // Try loading from localStorage first
+  //   const savedCart = localStorage.getItem('userCart');
+  //   if (savedCart) {
+  //     setCart(JSON.parse(savedCart));
+  //   } else {
+  //     // Fallback to backend fetch
+  //     fetch(`http://localhost:5000/api/user/cart/101`)
+  //       .then(res => res.json())
+  //       .then(data => setCart(data.items))
+  //       .catch(err => console.error('Failed to load cart:', err));
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   // Save cart to localStorage whenever it changes
+  //   localStorage.setItem('userCart', JSON.stringify(cart));
+  // }, [cart]);
+
   const handleAddToCart = async (drug) => {
     const payload = {
       userId: userId,
@@ -103,3 +122,4 @@ const UserDrugs = () => {
 };
 
 export default UserDrugs;
+

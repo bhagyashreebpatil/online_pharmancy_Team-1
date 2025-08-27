@@ -1,10 +1,19 @@
 package com.Springboot.online_pharmacy_backend.dto;
 
+import com.Springboot.online_pharmacy_backend.model.Drug;
+
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
 public class CartItemDTO {
     private Long drugId;
     private String drugName;
     private int quantity;
     private double price;
+    
+    @ManyToOne
+    @JoinColumn(name = "drugId", insertable = false, updatable = false)
+    private Drug drug;
 
     // Getter and Setter for drugId
     public Long getDrugId() {

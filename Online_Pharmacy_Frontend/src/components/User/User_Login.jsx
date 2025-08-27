@@ -42,7 +42,7 @@ const UserLogin = () => {
     <>
       <img className="user-background-img" src={UserLoginPhoto} alt="UserLoginPhoto" />
       <div className="user-login-container">
-        <form className="user-login-form" onSubmit={handleLogin}>
+        <form className="user-login-form" onSubmit={handleLogin} autoComplete="off">
           <h2>User Login</h2>
 
         <input
