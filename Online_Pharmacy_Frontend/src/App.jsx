@@ -10,6 +10,10 @@ import AdminDashboard from './components/Admin/Admin_Dashboard';
 import ManageMembers from './components/Admin/Manage_Members';
 import ManageDrugs from './components/Admin/Manage_Drugs';
 import AdminHome from './components/Admin/AdminHome';
+import UserDrugs from './components/User/User_Drugs';
+import UserPayment from './components/User/User_Payment';
+import UserDashboard from './components/User/User_Dashboard';
+
 
 
 const AppRoutes = () => {
@@ -38,6 +42,11 @@ const AppRoutes = () => {
           <Route index element={<AdminHome />} />
           <Route path="manage-members" element={<ManageMembers />} />
           <Route path="manage-drugs" element={<ManageDrugs />} />
+        </Route>
+        <Route path="/user/dashboard" element={<UserDashboard/>}>
+          {/* <Route path="profile" element={<UserProfile />} /> */}
+          <Route path="drugs" element={<UserDrugs />} />
+          <Route path="payment" element={<UserPayment />} />
         </Route>
       </Routes>
     </>

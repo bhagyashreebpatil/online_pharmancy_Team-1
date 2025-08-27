@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import '../../styles/User/User_Login.css'; // Optional: for styling
 import UserLoginPhoto from '../../media/UserLoginPhoto.png'; // Replace with your image path
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const UserLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -20,6 +21,7 @@ const UserLogin = () => {
 
       if (response.data.success) {
         alert('✅ Login successful!');
+        navigate("/user/dashboard");
       } else{
         alert('❌ Invalid credentials');
       }
