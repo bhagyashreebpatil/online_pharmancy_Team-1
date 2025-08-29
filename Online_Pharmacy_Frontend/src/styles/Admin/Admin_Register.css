@@ -12,8 +12,9 @@
 
 .admin-form-container {
   width: 100%;
-  max-width: 400px;
-  margin: 90px auto;
+  max-width: 500px;
+  max-height: 700px;
+  margin: 50px auto;
   padding: 30px;
   background: rgba(255, 255, 255, 0.25);
   border-radius: 15px;

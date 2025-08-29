@@ -1,7 +1,8 @@
 .admin-dashboard {
   display: flex;
   min-height: 100vh;
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  /* background: linear-gradient(135deg, #6e8efb, #a777e3); */
+  background: linear-gradient(135deg, #033dfb, #a777e3);
   color: #fff;
 }
 
@@ -28,9 +29,10 @@
 }
 
 .admin-sidebar a {
-  color: #fff;
+  color: #dadada;
   text-decoration: none;
   font-weight: 500;
+  font-size: 20px;
   transition: 0.3s;
 }
 

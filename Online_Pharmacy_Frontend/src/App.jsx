@@ -13,6 +13,7 @@ import AdminHome from './components/Admin/AdminHome';
 import UserDrugs from './components/User/User_Drugs';
 import UserPayment from './components/User/User_Payment';
 import UserDashboard from './components/User/User_Dashboard';
+import Footer from './components/Shared/Footer';
 
 
 
@@ -49,6 +50,7 @@ const AppRoutes = () => {
           <Route path="payment" element={<UserPayment />} />
         </Route>
       </Routes>
+      <Footer />
     </>
   );
 };

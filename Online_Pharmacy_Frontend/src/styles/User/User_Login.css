@@ -10,23 +10,24 @@
 }
 .user-login-container {
   align-items: center;
-  margin: 100px 600px;
+  margin: 40px 500px;
 }
 
 .user-login-form {
   background: rgba(21, 21, 21, 0.744);
   backdrop-filter: blur(10px);
   border-radius: 16px;
-  padding: 40px 30px;
+  padding: 40px 40px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  width: 300px;
+  width: 450px;
   text-align: center;
   color: #fff;
 }
 
 .user-login-form h2 {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   font-weight: 600;
+  font-size:30px;
   color: #ffffff;
 }
 
@@ -54,7 +55,7 @@
 .user-login-form button {
   width: 100%;
   padding: 12px;
-  margin-top: 15px;
+  margin-top: 30px;
   margin-left: 10px;
   border: none;
   border-radius: 8px;

@@ -1,9 +1,15 @@
-body{
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    overflow: hidden;
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  overflow-x: hidden;
 }
+
 .navbar {
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
