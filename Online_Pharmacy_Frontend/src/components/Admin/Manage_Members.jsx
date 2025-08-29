@@ -86,7 +86,7 @@ const ManageMembers = () => {
             <h2>👥 Manage Members</h2>
             <button className="member-add-btn" onClick={handleAddClick}>➕ Add Member</button>
           </div>
-          <p>Total Members: {members.length}</p>
+          <p className='total-members'>Total Members: {members.length}</p>
           <table className="members-table">
             <thead>
               <tr>
