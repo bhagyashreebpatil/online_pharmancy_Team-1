@@ -14,7 +14,7 @@
 
 .user-sidebar h2 {
   margin-bottom: 1rem;
-  font-size: 1.7rem;
+  font-size: 30px;
 }
 
 .user-sidebar ul {
@@ -28,10 +28,10 @@
 }
 
 .user-sidebar a {
-  color: #fff;
+  color: #e1e0e0;
   text-decoration: none;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 22px;
   transition: 0.3s;
 }
 
