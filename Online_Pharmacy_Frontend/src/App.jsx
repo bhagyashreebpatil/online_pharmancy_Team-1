@@ -14,6 +14,7 @@ import UserDrugs from './components/User/User_Drugs';
 import UserPayment from './components/User/User_Payment';
 import UserDashboard from './components/User/User_Dashboard';
 import Footer from './components/Shared/Footer';
+import Cart from './components/User/Cart';
 
 
 
@@ -48,6 +49,7 @@ const AppRoutes = () => {
           {/* <Route path="profile" element={<UserProfile />} /> */}
           <Route path="drugs" element={<UserDrugs />} />
           <Route path="payment" element={<UserPayment />} />
+          <Route path="cart" element={<Cart />} />
         </Route>
       </Routes>
       <Footer />
