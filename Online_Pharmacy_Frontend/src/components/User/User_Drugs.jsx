@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import '../../styles/User/User_Drugs.css';
+import { useNavigate } from 'react-router-dom';
+import { useOutletContext } from 'react-router-dom';
 
 const UserDrugs = () => {
   const [drugs, setDrugs] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [cart, setCart] = useState([]);
+  const { cart, setCart } = useOutletContext();
   const [showCart, setShowCart] = useState(false);
+  const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem('user'));
   const userId = user?.id;
 
@@ -54,7 +57,7 @@ const UserDrugs = () => {
 
       if (response.ok) {
         if (!cart.find(item => item.id === drug.id)) {
-          setCart([...cart, drug]);
+          setCart([...cart, { ...drug, qty: 1 }]);
           alert(`Response: ${message}`);
 
         }
@@ -78,7 +81,7 @@ const UserDrugs = () => {
     <div className="user-drugs">
       <div className="cart-header">
         <h2>💊 Browse Drugs</h2>
-        <div className="cart-icon" onClick={() => setShowCart(!showCart)}>
+        <div className="cart-icon" onClick={() => navigate('/user/dashboard/cart')}>
           🛒 Cart ({cart.length})
         </div>
       </div>
