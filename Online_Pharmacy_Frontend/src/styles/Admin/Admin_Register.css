@@ -16,7 +16,7 @@
   max-height: 700px;
   margin: 50px auto;
   padding: 30px;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(31, 5, 88, 0.854);
   border-radius: 15px;
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
@@ -26,8 +26,8 @@
 /* Heading */
 .admin-form-container h2 {
   margin-bottom: 20px;
-  font-size: 26px;
-  color: #1d5087;
+  font-size: 28px;
+  color: #fdfdfd;
 }
 
 /* Input fields */
@@ -44,7 +44,7 @@
 .admin-form-container input:focus {
     border-color: #1ba3da;
     outline: none;
-    box-shadow: 0 0 2px rgba(46, 119, 198, 0.824);
+    box-shadow: 0 0 2px rgba(46, 119, 198, 0.84);
 }
 
 /* Placeholder text */
@@ -55,13 +55,13 @@
 .admin-form-container button {
   width: 100%;
   padding: 12px;
-  background-color: #1d5087;
+  background-color: #1b9129;
   border: none;
   margin-left: 10px;
   border-radius: 8px;
   color: white;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 20px;
   cursor: pointer;
 }
 /* Button hover effect */

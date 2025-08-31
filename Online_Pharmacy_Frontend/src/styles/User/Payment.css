@@ -1,0 +1,85 @@
+/* Container styling */
+.payment-container {
+  padding: 40px;
+  text-align: center;
+  border-radius: 10px;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(to right, #c8d5f8, #b1f5fe);
+  min-height: 100vh;
+}
+
+/* Heading */
+.payment-heading {
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Payment options layout */
+.payment-options {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+/* Individual payment button */
+.payment-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  border: 2px solid #007bff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 160px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.payment-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo image */
+.payment-logo {
+  width: 100px;
+  height: 70px; 
+  margin-bottom: 10px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.PhonePe {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+
+/* Label text */
+.payment-label {
+  font-size: 16px;
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* Back button */
+.back-button {
+  margin-top: 20px;
+  background-color: #ccc;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.back-button:hover {
+  background-color: #bbb;
+}

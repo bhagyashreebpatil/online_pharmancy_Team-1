@@ -1,13 +1,12 @@
 
 .user-background-img {
   position: fixed;
-  top: 100px;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
   object-fit: cover;
   z-index: -1;
   filter: blur(2px);
 }
+
 .user-login-container {
   align-items: center;
   margin: 40px 500px;
@@ -59,9 +58,9 @@
   margin-left: 10px;
   border: none;
   border-radius: 8px;
-  background-color: rgb(46, 219, 219);
-  color: rgb(1, 0, 5);
-  font-size: 16px;
+  background-color: rgb(203, 86, 86);
+  color: rgb(255, 255, 255);
+  font-size: 18px;
   font-weight: 550;
   cursor: pointer;
 }

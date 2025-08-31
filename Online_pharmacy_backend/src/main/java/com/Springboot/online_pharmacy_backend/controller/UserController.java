@@ -1,13 +1,14 @@
 package com.Springboot.online_pharmacy_backend.controller;
 
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,10 +30,7 @@ public class UserController {
     
     @Autowired
     private UserRepository userRepository;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder; 
-
+ 
 
 //    @PostMapping("/register")
 //    public ResponseEntity<String> registerUser(@RequestBody User user) {
@@ -65,6 +63,31 @@ public class UserController {
         }
     }
     
+    @GetMapping("/count")
+    public ResponseEntity<Long> getUserCount() {
+        long count = userRepository.count();
+        return ResponseEntity.ok(count);
+    }
+
+//    @PostMapping("/login")
+//    public ResponseEntity<?> login(@RequestBody Map<String, String> credentials) {
+//        String email = credentials.get("email");
+//        String password = credentials.get("password");
+//
+//        boolean isAuthenticated = userService.authenticate(email, password);
+//
+//        if (isAuthenticated) {
+//            return ResponseEntity.ok(Map.of(
+//                "success", true,
+//                "message", "Login successful"
+//            ));
+//        } else {
+//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of(
+//                "success", false,
+//                "message", "Invalid credentials"
+//            ));
+//        }
+//    }
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Map<String, String> credentials) {
         String email = credentials.get("email");
@@ -73,15 +96,28 @@ public class UserController {
         boolean isAuthenticated = userService.authenticate(email, password);
 
         if (isAuthenticated) {
-            return ResponseEntity.ok(Map.of(
-                "success", true,
-                "message", "Login successful"
-            ));
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of(
-                "success", false,
-                "message", "Invalid credentials"
-            ));
+            Optional<User> optionalUser = userRepository.findByEmail(email);
+            if (optionalUser.isPresent()) {
+                User user = optionalUser.get();
+
+                Map<String, Object> userMap = new HashMap<>();
+                userMap.put("id", user.getId());
+                userMap.put("email", user.getEmail());
+                userMap.put("username", user.getUserName());
+                userMap.put("role", user.getRole().toString());
+
+                Map<String, Object> response = new HashMap<>();
+                response.put("success", true);
+                response.put("message", "Login successful");
+                response.put("user", userMap);
+
+                return ResponseEntity.ok(response);
+            }
         }
+
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of(
+            "success", false,
+            "message", "Invalid credentials"
+        ));
     }
 }

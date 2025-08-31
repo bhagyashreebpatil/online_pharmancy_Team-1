@@ -1,12 +1,13 @@
 .user-dashboard {
   display: flex;
   min-height: 100vh;
-  background: linear-gradient(135deg, #15a7b1eb, #0a46fd);
+  /* background: linear-gradient(135deg, #15a7b1eb, #0a46fd); */
+
 }
 
 .user-sidebar {
   width: 200px;
-  background: rgba(0, 0, 0, 0.2);
+  background-color: rgba(14, 14, 158, 0.865);
   padding: 2rem 1rem;
   backdrop-filter: blur(8px);
   color: #fff;
@@ -14,11 +15,11 @@
 
 .user-sidebar h2 {
   margin-bottom: 1rem;
+  color: #fff;
   font-size: 30px;
 }
 
 .user-sidebar ul {
-  text-align: center;
   list-style: none;
   padding: 0;
 }
@@ -27,11 +28,13 @@
   margin: 1rem 0;
 }
 
+
 .user-sidebar a {
+  margin-left: 15px;
   color: #e1e0e0;
   text-decoration: none;
   font-weight: 500;
-  font-size: 22px;
+  font-size: 24px;
   transition: 0.3s;
 }
 
@@ -46,4 +49,19 @@
   backdrop-filter: blur(6px);
   border-left: 1px solid rgba(255, 255, 255, 0.2);
   color: #333;
+}
+
+.user-sidebar-icon {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 8px;
+  vertical-align: middle;
+  margin-left: 25px;
+}
+
+.user-panel{
+  text-align: center;
+  color: rgb(40, 40, 41);
 }

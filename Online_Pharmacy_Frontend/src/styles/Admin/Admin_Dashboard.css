@@ -2,13 +2,14 @@
   display: flex;
   min-height: 100vh;
   /* background: linear-gradient(135deg, #6e8efb, #a777e3); */
-  background: linear-gradient(135deg, #033dfb, #a777e3);
+  /* background: linear-gradient(135deg, #033dfb, #a777e3); */
+  background-color: #fff;
   color: #fff;
 }
 
 .admin-sidebar {
-  width: 170px;
-  background: rgba(0, 0, 0, 0.493);
+  width: 180px;
+  background-color: rgb(8, 8, 103);
   padding: 30px;
   backdrop-filter: blur(10px);
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
@@ -75,4 +76,13 @@
   border-left: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 0 12px 12px 0;
   color: rgb(59, 58, 58);
+}
+
+.sidebar-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 8px;
+  vertical-align: middle;
 }

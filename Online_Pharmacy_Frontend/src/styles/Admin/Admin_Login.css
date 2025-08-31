@@ -1,11 +1,17 @@
+.admin-login-photo{
+    width: 100%;
+    height:300px;
+    object-fit: cover;
+}
 
 .admin-login-container {
     background: rgb(255, 254, 254);
     padding: 40px 30px;
     margin: 40px auto;
+    height: 350px;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(92, 91, 91, 0.842);
-    width: 300px;
+    width: 500px;
     text-align: center;
 }
 
@@ -50,6 +56,7 @@ input[type="password"] {
     border: none;
     border-radius: 8px;
     font-size: 16px;
+    margin-top: 20px;
     cursor: pointer;
     margin-left: 10px;
     

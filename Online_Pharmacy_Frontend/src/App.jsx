@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { DashboardProvider } from './components/Admin/DashboardContext';
-import UserLogin from './components/user/User_Login';
 import UserRegisterForm from './components/user/User_Register';
 import AdminLogin from './components/Admin/Admin_Login';
 import AdminRegister from './components/Admin/Admin_Register';
@@ -15,6 +14,13 @@ import UserPayment from './components/User/User_Payment';
 import UserDashboard from './components/User/User_Dashboard';
 import Footer from './components/Shared/Footer';
 import Cart from './components/User/Cart';
+import ErrorBoundary from './components/User/ErrorBoundary';
+import UserLogin from './components/User/User_Login';
+import AdminProfile from './components/Admin/Admin_Profile';
+import UserProfile from './components/User/User_Profile';
+import UserHome from './components/User/User_Home';
+import Payment from './components/User/Payment';
+
 
 
 
@@ -42,14 +48,21 @@ const AppRoutes = () => {
         <Route path="/" element={<UserLogin />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />}>
           <Route index element={<AdminHome />} />
+          <Route path="profile" element={<AdminProfile />} />
           <Route path="manage-members" element={<ManageMembers />} />
           <Route path="manage-drugs" element={<ManageDrugs />} />
         </Route>
         <Route path="/user/dashboard" element={<UserDashboard/>}>
-          {/* <Route path="profile" element={<UserProfile />} /> */}
+          <Route index element={<UserHome />} />
+          <Route path="profile" element={<UserProfile />} />
           <Route path="drugs" element={<UserDrugs />} />
           <Route path="payment" element={<UserPayment />} />
-          <Route path="cart" element={<Cart />} />
+          <Route path="cart" element={
+            <ErrorBoundary>
+              <Cart />
+            </ErrorBoundary>
+          } />
+          <Route path="payment-user" element={<Payment />} />
         </Route>
       </Routes>
       <Footer />

@@ -1,6 +1,6 @@
 
 .cart-page {
-  background: rgba(246, 248, 249, 0.354);
+  background:linear-gradient(135deg, #1ad7f0, #d47be3);
   backdrop-filter: blur(10px);
   border-radius: 12px;
   padding:2rem;

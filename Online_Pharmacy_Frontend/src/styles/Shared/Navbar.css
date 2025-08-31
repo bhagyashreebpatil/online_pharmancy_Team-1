@@ -6,14 +6,13 @@ body, html, #root {
   font-family: 'Segoe UI', sans-serif;
   overflow-x: hidden;
 }
-
 .navbar {
   position: sticky;
   top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  /* padding: 1rem 1rem; */
   /* background: linear-gradient(to right, #a84ae3b1, #39a7f0ee); */
   background-color: rgba(0, 0, 0, 0.797);
   backdrop-filter: blur(10px);
@@ -26,7 +25,7 @@ body, html, #root {
 }
 .logo {
     color: #fbfbfb;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
 }
 
@@ -40,7 +39,7 @@ body, html, #root {
    color: #00ffff;
   text-decoration: none;
   font-weight: 500;
-  font-size: 21px;
+  font-size: 25px;
   transition: color 0.3s ease;
 }
 

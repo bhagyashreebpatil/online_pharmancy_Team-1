@@ -11,10 +11,10 @@ const AdminHome = () => {
 
   useEffect(() => {
     // Fetch admin count
-    fetch('http://localhost:5000/api/admins')
-      .then(res => res.json())
-      .then(data => setAdminCount(data.length))
-      .catch(err => console.error('Error fetching admins:', err));
+    fetch("http://localhost:5000/api/admin/count")
+      .then((res) => res.json())
+      .then((data) => setAdminCount(data))
+      .catch((err) => console.error("Error fetching admin count:", err));
 
     // Fetch member count
     fetch('http://localhost:5000/api/members')

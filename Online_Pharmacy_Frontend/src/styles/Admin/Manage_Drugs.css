@@ -2,7 +2,7 @@
   padding: 2rem;
   font-family: 'Segoe UI', sans-serif;
   /* background: linear-gradient(to right, #f0f4ff, #e0f7fa); */
-  background-color: #ffffffa7;
+  background:linear-gradient(135deg, #85a4f880, #95eefaa6);
   border-radius: 12px;
 }
 .header {
@@ -13,7 +13,7 @@
 }
 .header h2 {
   font-size: 1.8rem;
-  color: #333;
+  color: #6c1616;
 }
 .total-drugs{
     font-weight: bold;
@@ -52,7 +52,7 @@
 }
 
 .drug-scroll {
-  max-height: 60vh;
+  max-height: 70vh;
   overflow-y: auto;
   padding-right: 1rem;
 }
@@ -130,7 +130,7 @@
  .form-wrapper {
   max-width: 700px;
   margin: 2rem auto;
-  background: rgba(255, 255, 255, 0.057);
+  background: rgba(80, 54, 142, 0.655);
   backdrop-filter: blur(8px);
   padding: 2rem;
   border-radius: 16px;
@@ -142,7 +142,7 @@
 }
 
 .scrollable {
-  max-height: 70vh;
+  max-height: 90vh;
   overflow-y: auto;
   padding-right: 1rem;
 }
@@ -162,8 +162,9 @@
 }
 
 .drug-form h3 {
-  margin-bottom: 1rem;
-  color: #333;
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-size: 26px;
 }
 
 .drug-form input {
