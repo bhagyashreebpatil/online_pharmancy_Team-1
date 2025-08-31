@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../../styles/User/User_Login.css'; // Optional: for styling
-import UserLoginPhoto from '../../media/UserLoginPhoto.png'; // Replace with your image path
+import UserLoginPhoto from '../../media/UserLoginPhoto.jpg'; // Replace with your image path
 import { Link, useNavigate } from 'react-router-dom';
 
 
@@ -20,6 +20,7 @@ const UserLogin = () => {
       });
 
       if (response.data.success) {
+        localStorage.setItem("user", JSON.stringify(response.data.user));
         alert('✅ Login successful!');
         navigate("/user/dashboard");
       } else{

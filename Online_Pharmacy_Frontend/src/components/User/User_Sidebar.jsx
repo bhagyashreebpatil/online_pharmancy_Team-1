@@ -1,14 +1,17 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import profileIcon from '../../media/profile1.png'; // Replace with your icon path
 
 const UserSidebar = () => {
   return (
     <div className="user-sidebar">
-      <h2>👤 User Panel</h2><br/>
+      <Link to="profile">
+        <img src={profileIcon} alt="User Profile" className="user-sidebar-icon" />
+      </Link>
+      <h2 className='user-panel'>User Panel</h2><br/>
       <ul>
-        <li><NavLink to="profile">User Profile</NavLink></li>
-        <li><NavLink to="drugs">Drugs</NavLink></li>
-        <li><NavLink to="payment">Payment</NavLink></li>
+        <li><Link to="drugs">💊Drugs</Link></li>
+        <li><Link to="payment">💳Payment</Link></li>
       </ul>
     </div>
   );

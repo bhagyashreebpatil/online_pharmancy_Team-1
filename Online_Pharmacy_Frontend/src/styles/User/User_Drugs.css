@@ -2,9 +2,9 @@
 .user-drugs {
   border-radius: 12px;
   padding: 2rem;
-  background: linear-gradient(to right, #e0f7fa, #e1bee7);
+  padding-bottom: 2rem;
+  background: linear-gradient(to right, #52eafe, #d194dc);
   background-color: #fbfbfb88;
-  min-height: 100vh;
   color: #333;
   position: relative;
 }
@@ -16,9 +16,14 @@
   margin-bottom: 1rem;
 }
 
+.cart-header h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
 .cart-icon {
   font-size: 1.2rem;
-  background-color: #7e57c2;
+  background-color: #070707;
   color: white;
   padding: 0.4rem 0.8rem;
   border-radius: 8px;
@@ -83,7 +88,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
-  max-height: 60vh;
+  max-height: 65vh;
   overflow-y: auto;
   padding-right: 1rem;
   scrollbar-width: thin;
@@ -141,7 +146,7 @@
 .drug-card button {
   margin-top: 0.8rem;
   padding: 0.5rem 1rem;
-  background-color: #7e57c2;
+  background-color: #9b0f0f;
   color: white;
   border: none;
   border-radius: 8px;

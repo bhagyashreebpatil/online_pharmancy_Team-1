@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import '../../styles/User/Cart.css';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
-  const { cart = [], setCart } = useOutletContext();
-  const [total, setTotal] = useState(0);
-
   const user = JSON.parse(localStorage.getItem('user'));
   const userId = user?.id;
+  const { cart = [], setCart } = useOutletContext();
+  const [total, setTotal] = useState(0);
+  const navigate = useNavigate();
 
     useEffect(() => {
     const newTotal = cart.reduce((sum, item) => {
@@ -21,7 +22,41 @@ const Cart = () => {
         setTotal(newTotal);
     }, [cart]);
 
-  // 🔄 Update quantity for a specific item
+    useEffect(() => {
+      if (userId) {
+        // fetch(`http://localhost:5000/api/cart/${userId}`)
+        //   .then(res => res.json())
+        //   .then(data => {
+        //     const formatted = data.map(item => ({
+        //       id: item.id,
+        //       name: item.drug?.name || "Unknown",
+        //       price: item.drug?.price || 0,
+        //       qty: item.quantity,
+        //       type: item.drug?.type || "Tablet",
+        //       imageUrl: item.drug?.imageUrl || "/default-drug.png"
+        //     }));
+        //     setCart(formatted);
+        //   })
+        //   .catch(err => console.error("Failed to fetch cart", err));
+        fetch(`http://localhost:5000/api/cart/${userId}`)
+          .then(res => res.json())
+          .then(data => {
+            const formatted = data.items.map(item => ({
+              id: item.id || item.drugId, // fallback if cartItem ID is missing
+              name: item.drugName,
+              price: item.price,
+              qty: item.quantity,
+              type: item.type,
+              imageUrl: item.imageUrl,
+              drugId: item.drugId
+        }));
+            setCart(formatted);
+          })
+            .catch(err => console.error("Failed to fetch cart", err));
+      }
+    }, [userId]);
+
+  
   const updateQty = (id, newQty) => {
     const qty = Math.max(1, newQty); // prevent 0 or negative
     const updated = cart.map(item =>
@@ -35,11 +70,7 @@ const Cart = () => {
     const updated = cart.filter(item => item.id !== id);
     setCart(updated);
   };
-
-  const handlePayment = () => {
-    console.log('Proceeding to payment with:', cart);
-    // You can redirect or trigger backend logic here
-  };
+  
 
   return (
 
@@ -67,13 +98,13 @@ const Cart = () => {
                   </label>
                   <p>Subtotal: ₹{item.price * item.qty}</p>
                 </div>
-                <button className="remove-btn" onClick={() => removeItem(item.id)}>Remove</button>
+                <button className="remove-btn" onClick={() => removeItem(item.drugId)}>Remove</button>
               </div>
             ))}
 
             <div className="cart-total">
               <h3>Total Amount: ₹{total}</h3>
-              <button className="checkout-btn" onClick={handlePayment}>Proceed to Payment</button>
+              <button className="checkout-btn" onClick={() => navigate("/user/dashboard/payment-user")}>Proceed to Payment</button>
             </div>
           </div>
         )}

@@ -56,10 +56,10 @@ const UserDrugs = () => {
       const message = await response.text();
 
       if (response.ok) {
-        if (!cart.find(item => item.id === drug.id)) {
-          setCart([...cart, { ...drug, qty: 1 }]);
+        if (!cart.find(item => item.drugId === drug.id)) {
+          // setCart([...cart, { ...drug, qty: 1 }]);
+          setCart([...cart, { ...drug, drugId: drug.id, qty: 1 }]);
           alert(`Response: ${message}`);
-
         }
       } else {
         alert('Failed to add drug to cart.');
@@ -68,7 +68,7 @@ const UserDrugs = () => {
       console.error('Error adding to cart:', err);
     }
   };
-
+ 
   const handleRemoveFromCart = (id) => {
     setCart(cart.filter(item => item.id !== id));
   };
@@ -80,7 +80,7 @@ const UserDrugs = () => {
   return (
     <div className="user-drugs">
       <div className="cart-header">
-        <h2>💊 Browse Drugs</h2>
+        <h1>💊 Browse Drugs</h1>
         <div className="cart-icon" onClick={() => navigate('/user/dashboard/cart')}>
           🛒 Cart ({cart.length})
         </div>

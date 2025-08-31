@@ -3,7 +3,7 @@ import axios from 'axios';
 import '../../styles/Admin/Admin_Login.css'; // Adjust the path as necessary
 import adminLoginImg from '../../media/adminLoginImg.jpg'; // Replace with your image path
 import { Router, useNavigate } from 'react-router-dom';
-import Navbar from '../Shared/Navbar';
+import adminLoginPhoto from '../../media/adminLoginPhoto.jpeg'; // Replace with your image path
 
 
 const AdminLogin = () => {
@@ -33,7 +33,8 @@ const AdminLogin = () => {
 
   return(
     <>
-    <div>
+    <div className='admin-login-container-box'>
+    <img src={adminLoginPhoto} alt="Admin Login" className='admin-login-photo' />
     <div className="admin-login-container">
       <div>
         <img className="admin-login-background-img" src={adminLoginImg} alt="adminLoginImg" />

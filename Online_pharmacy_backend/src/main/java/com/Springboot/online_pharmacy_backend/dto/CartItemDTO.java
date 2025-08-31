@@ -8,46 +8,31 @@ import jakarta.persistence.ManyToOne;
 public class CartItemDTO {
     private Long drugId;
     private String drugName;
-    private int quantity;
+    private String type;
+    private String imageUrl;
     private double price;
-    
+    private int quantity;
+
     @ManyToOne
     @JoinColumn(name = "drugId", insertable = false, updatable = false)
     private Drug drug;
 
-    // Getter and Setter for drugId
-    public Long getDrugId() {
-        return drugId;
-    }
+    public Long getDrugId() { return drugId; }
+    public void setDrugId(Long drugId) { this.drugId = drugId; }
 
-    public void setDrugId(Long drugId) {
-        this.drugId = drugId;
-    }
+    public String getDrugName() { return drugName; }
+    public void setDrugName(String drugName) { this.drugName = drugName; }
 
-    // Getter and Setter for drugName
-    public String getDrugName() {
-        return drugName;
-    }
+    public String getType() { return type; }
+    public void setType(String type) { this.type = type; }
 
-    public void setDrugName(String drugName) {
-        this.drugName = drugName;
-    }
+    public String getImageUrl() { return imageUrl; }
+    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
 
-    // Getter and Setter for quantity
-    public int getQuantity() {
-        return quantity;
-    }
+    public double getPrice() { return price; }
+    public void setPrice(double price) { this.price = price; }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
+    public int getQuantity() { return quantity; }
+    public void setQuantity(int quantity) { this.quantity = quantity; }
 
-    // Getter and Setter for price
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
 }

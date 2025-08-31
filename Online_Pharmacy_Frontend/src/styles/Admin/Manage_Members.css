@@ -1,6 +1,6 @@
 .manage-members {
   padding: 2rem;
-  background: rgba(249, 249, 249, 0.459);
+  background: rgba(249, 223, 79, 0.514);
   backdrop-filter: blur(6px);
   border-radius: 12px;
   font-family: 'Segoe UI', sans-serif;
@@ -57,7 +57,7 @@
 }
 
 .members-table th {
-  background-color: rgba(0, 0, 0, 0.196);
+  background-color: rgba(128, 19, 19, 0.53);
 }
 
 .members-table button {

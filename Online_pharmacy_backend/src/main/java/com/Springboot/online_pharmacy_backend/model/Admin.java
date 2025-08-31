@@ -1,6 +1,8 @@
 package com.Springboot.online_pharmacy_backend.model;
 
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,6 +21,12 @@ public class Admin {
     private String email;
 
     private String password;
+
+    private String phone;
+    private String address;
+    private String gender;
+    private LocalDate dob;
+    private String profileImage;
 
     // 🔹 Getters
     public Long getId() {
@@ -52,6 +60,46 @@ public class Admin {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public LocalDate getDob() {
+        return dob;
+    }
+
+    public String getProfileImage() {
+        return profileImage;
+    }
+    
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
+
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
     }
 }
 
