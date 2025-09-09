@@ -6,7 +6,7 @@
 }
 
 .profile-card {
-  background: rgba(254, 253, 253, 0.587);
+  background: rgba(249, 216, 145, 0.925);
   backdrop-filter: blur(12px);
   border-radius: 16px;
   padding: 2rem;
@@ -35,6 +35,8 @@
   border: none;
   width: 103%;
   margin-left: 3px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
   margin-top: 5px;
   margin-bottom: 0px;
 }
