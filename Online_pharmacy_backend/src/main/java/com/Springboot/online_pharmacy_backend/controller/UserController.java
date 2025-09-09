@@ -31,16 +31,6 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
  
-
-//    @PostMapping("/register")
-//    public ResponseEntity<String> registerUser(@RequestBody User user) {
-//        String response = userService.registerUser(user);
-//        if (response.equals("User registered successfully")) {
-//            return ResponseEntity.ok(response);
-//        } else {
-//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
-//        }
-//    }
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody LoginRequest request) {
         try {
@@ -69,25 +59,6 @@ public class UserController {
         return ResponseEntity.ok(count);
     }
 
-//    @PostMapping("/login")
-//    public ResponseEntity<?> login(@RequestBody Map<String, String> credentials) {
-//        String email = credentials.get("email");
-//        String password = credentials.get("password");
-//
-//        boolean isAuthenticated = userService.authenticate(email, password);
-//
-//        if (isAuthenticated) {
-//            return ResponseEntity.ok(Map.of(
-//                "success", true,
-//                "message", "Login successful"
-//            ));
-//        } else {
-//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of(
-//                "success", false,
-//                "message", "Invalid credentials"
-//            ));
-//        }
-//    }
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Map<String, String> credentials) {
         String email = credentials.get("email");

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import profileIcon from '../../media/user-sidebar.jpg'; // Replace with your icon path
-
+import profileIcon from '../../media/user-sidebar.jpg'; 
 const UserSidebar = () => {
   return (
     <div className="user-sidebar">

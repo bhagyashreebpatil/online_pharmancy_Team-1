@@ -24,10 +24,6 @@ public class AdminService {
     @Autowired
     private AdminRepository adminRepository;
 
-    @Autowired
-    private ImageStorageService imageStorageService;
-
-
 
     public Admin register(Admin admin) {
         if (repo.existsByEmail(admin.getEmail())) {
@@ -51,28 +47,5 @@ public class AdminService {
                 .orElseThrow(() -> new RuntimeException("Admin not found with email: " + email));
     }
 
-    public Admin updateProfileDetails(String email, String phone, String address, String gender, String dob, MultipartFile profileImage) {
-        Admin admin = getAdminByEmail(email);
-
-        admin.setPhone(phone);
-        admin.setAddress(address);
-        admin.setGender(gender);
-
-        try {
-            admin.setDob(LocalDate.parse(dob));
-        } catch (Exception e) {
-            throw new RuntimeException("Invalid date format. Use yyyy-MM-dd");
-        }
-
-        if (profileImage != null && !profileImage.isEmpty()) {
-            String imageUrl = imageStorageService.save(profileImage);
-            admin.setProfileImage(imageUrl);
-        }
-
-        return adminRepository.save(admin);
-    }
-
-
-
-
+    
 }

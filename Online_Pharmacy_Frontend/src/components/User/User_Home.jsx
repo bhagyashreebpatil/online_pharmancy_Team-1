@@ -10,7 +10,7 @@ const UserHome = () => {
   } = useContext(DashboardContext);
 
   useEffect(() => {
-    // Fetch user count
+    
     fetch("http://localhost:5000/api/user/count")
       .then((res) => res.json())
       .then((data) => setUserCount(data))
