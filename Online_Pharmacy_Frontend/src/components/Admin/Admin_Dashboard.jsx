@@ -9,33 +9,17 @@ const AdminDashboard = () => {
   const [drugCount, setDrugCount] = useState(0);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {    
-    fetch('http://localhost:5000/api/admins')
-      .then(res => res.json())
-      .then(data => setAdminCount(data.length))
-      .catch(err => console.error('Failed to fetch admins:', err));
-
-    fetch('http://localhost:5000/api/users')
-      .then(res => res.json())
-      .then(data => setUserCount(data.length))
-      .catch(err => console.error('Failed to fetch users:', err));
-
-    fetch('http://localhost:5000/api/drugs')
-      .then(res => res.json())
-      .then(data => setDrugCount(data.length))
-      .catch(err => console.error('Failed to fetch drugs:', err));
-
+  useEffect(() => {
     const token = localStorage.getItem('token');
 
     Promise.all([
-      // ✅ Corrected admin count endpoint
       fetch('http://localhost:5000/api/admin/count', {
         headers: { Authorization: `Bearer ${token}` }
       }).then(res => res.json()).then(setAdminCount),
 
-      fetch('http://localhost:5000/api/members', {
+      fetch('http://localhost:5000/api/users', {
         headers: { Authorization: `Bearer ${token}` }
-      }).then(res => res.json()).then(data => setMemberCount(data.length)),
+      }).then(res => res.json()).then(data => setUserCount(data.length)),
 
       fetch('http://localhost:5000/api/drugs', {
         headers: { Authorization: `Bearer ${token}` }
@@ -43,7 +27,6 @@ const AdminDashboard = () => {
     ])
     .catch(err => console.error('Dashboard fetch error:', err))
     .finally(() => setLoading(false));
-
   }, []);
 
   if (loading) {
