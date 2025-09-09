@@ -31,24 +31,6 @@ public class CartServiceImpl implements CartService {
 	
     @Autowired
     private DrugRepository drugRepository;
-
-//    @Override
-//    public void addToCart(DrugOrderRequest request) {
-//    	CartItem existingItem = cartItemRepository
-//                .findByUserIdAndDrugId(request.getUserId(), request.getDrugId())
-//                .orElse(null);
-//
-//            if (existingItem != null) {
-//                existingItem.setQuantity(existingItem.getQuantity() + request.getQuantity());
-//                cartItemRepository.save(existingItem);
-//            }else {	
-//		        CartItem item = new CartItem();
-//		        item.setUserId(request.getUserId());
-//		        item.setDrugId(request.getDrugId());
-//		        item.setQuantity(request.getQuantity());
-//		        cartItemRepository.save(item);
-//            }
-//    }
     
     @Override
     public void addToCart(DrugOrderRequest request) {
@@ -105,6 +87,9 @@ public class CartServiceImpl implements CartService {
     @Override
     public void removeFromCart(Long userId, Long drugId) {
         cartItemRepository.deleteByUserIdAndDrugId(userId, drugId);
+        List<CartItem> remaining = cartItemRepository.findByUserId(userId);
+        System.out.println("Remaining items: " + remaining.size());
+
     }
     
 

@@ -5,13 +5,11 @@ const Footer = () => {
     <footer className="pharmacy-footer">
       <div className="footer-sections">
 
-        {/* Branding */}
         <div className="footer-brand">
           <h2>Online Pharmacy</h2>
           <p className='contact'>Your trusted source for genuine medicines and healthcare essentials.</p>
         </div>
 
-        {/* Categories */}
         <div className="footer-category">
           <h3>Categories</h3>
           <ul>
@@ -24,7 +22,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Navigation */}
         <div className="footer-links">
           <h3>Quick Links</h3>
           <ul>
@@ -36,7 +33,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Contact */}
         <div className="footer-contact">
           <h3>Contact Us</h3>
           <p className='contact'>Email: support@onlinepharmacy.in</p>

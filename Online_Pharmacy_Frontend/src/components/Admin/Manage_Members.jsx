@@ -9,7 +9,6 @@ const ManageMembers = () => {
   const [selectedMember, setSelectedMember] = useState(null);
   const [formData, setFormData] = useState({ name: '', email: '', role: '' });
 
-  // Fetch all members on mount
   useEffect(() => {
     fetch('http://localhost:5000/api/members')
       .then(res => res.json())
@@ -18,7 +17,6 @@ const ManageMembers = () => {
       .catch(err => console.error('Fetch failed:', err));
   }, []);
 
-  // Delete member
   const handleDelete = (id) => {
     fetch(`http://localhost:5000/api/members/${id}`, {
       method: 'DELETE'
@@ -29,25 +27,21 @@ const ManageMembers = () => {
       .catch(err => console.error('Delete failed:', err));
   };
 
-  // Prepare update form
   const handleUpdateClick = (member) => {
     setSelectedMember(member);
     setFormData(member);
     setView('update');
   };
 
-  // Prepare add form
   const handleAddClick = () => {
     setFormData({ name: '', email: '', role: '' });
     setView('add');
   };
 
-  // Handle form input changes
   const handleFormChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Submit form for add or update
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
@@ -134,15 +128,20 @@ const ManageMembers = () => {
             onChange={handleFormChange}
             required
           />
-          <input
+          <select
             className="member-input"
-            type="text"
             name="role"
-            placeholder="Role"
             value={formData.role}
             onChange={handleFormChange}
             required
-          />
+          >
+            <option value="">Select Role</option>
+            <option value="deliver">Deliver</option>
+            <option value="system-auditor">System Auditor</option>
+            <option value="cashier">Cashier</option>
+            <option value="supplier">Supplier</option>
+            <option value="warehouse-staff">Warehouse Staff</option>
+          </select>
           <button type="submit">✅ {view === 'add' ? 'Add Member' : 'Update Member'}</button>
           <button type="button" onClick={() => setView('list')}>↩️ Cancel</button>
         </form>

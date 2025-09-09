@@ -16,7 +16,6 @@ const UserHome = () => {
       .then((data) => setUserCount(data))
       .catch((err) => console.error("Error fetching user count:", err));
 
-    // Fetch drug count
     fetch('http://localhost:5000/api/user/drugs')
       .then(res => res.json())
       .then(data => setDrugCount(data.length))

@@ -5,24 +5,21 @@ import '../../styles/Admin/Admin_Home.css';
 const AdminHome = () => {
   const {
     adminCount, setAdminCount,
-    memberCount, setMemberCount,
+    userCount, setUserCount,
     drugCount, setDrugCount
   } = useContext(DashboardContext);
 
   useEffect(() => {
-    // Fetch admin count
     fetch("http://localhost:5000/api/admin/count")
       .then((res) => res.json())
       .then((data) => setAdminCount(data))
       .catch((err) => console.error("Error fetching admin count:", err));
 
-    // Fetch member count
-    fetch('http://localhost:5000/api/members')
-      .then(res => res.json())
-      .then(data => setMemberCount(data.length))
-      .catch(err => console.error('Error fetching members:', err));
+    fetch("http://localhost:5000/api/user/count")
+      .then((res) => res.json())
+      .then((data) => setUserCount(data))
+      .catch((err) => console.error("Error fetching user count:", err));
 
-    // Fetch drug count
     fetch('http://localhost:5000/api/drugs')
       .then(res => res.json())
       .then(data => setDrugCount(data.length))
@@ -34,7 +31,7 @@ const AdminHome = () => {
       <h2>📊 System Overview</h2>
       <div className="summary-grid">
         <div className="summary-card count"><h3>👑 Admin Profiles</h3><p>{adminCount}</p></div>
-        <div className="summary-card count"><h3>👥 Registered Members</h3><p>{memberCount}</p></div>
+        <div className="summary-card count"><h3>👥 Registered Users</h3><p>{userCount}</p></div>
         <div className="summary-card count"><h3>💊 Available Drugs</h3><p>{drugCount}</p></div>
         <div className="summary-card status"><h3>📦 Inventory Health</h3><p>{drugCount > 0 ? 'Stock levels stable' : 'No drugs available'}</p></div>
       </div>

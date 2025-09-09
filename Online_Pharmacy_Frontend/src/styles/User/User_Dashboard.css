@@ -8,7 +8,7 @@
 .user-sidebar {
   width: 200px;
   background-color: rgba(14, 14, 158, 0.865);
-  padding: 2rem 1rem;
+  padding: 0;
   backdrop-filter: blur(8px);
   color: #fff;
 }
@@ -22,10 +22,12 @@
 .user-sidebar ul {
   list-style: none;
   padding: 0;
+  
 }
 
 .user-sidebar li {
   margin: 1rem 0;
+  text-align: center;
 }
 
 
@@ -52,13 +54,9 @@
 }
 
 .user-sidebar-icon {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
+  width: 200px;
+  height: 150px;
   object-fit: cover;
-  margin-right: 8px;
-  vertical-align: middle;
-  margin-left: 25px;
 }
 
 .user-panel{

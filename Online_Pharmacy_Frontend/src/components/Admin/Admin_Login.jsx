@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';  
-import '../../styles/Admin/Admin_Login.css'; // Adjust the path as necessary
-import adminLoginImg from '../../media/adminLoginImg.jpg'; // Replace with your image path
+import '../../styles/Admin/Admin_Login.css'; 
+import adminLoginImg from '../../media/adminLoginImg.jpg'; 
 import { Router, useNavigate } from 'react-router-dom';
-import adminLoginPhoto from '../../media/adminLoginPhoto.jpeg'; // Replace with your image path
-
+import adminLoginPhoto from '../../media/adminLoginPhoto.jpeg';
 
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
