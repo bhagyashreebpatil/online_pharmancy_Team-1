@@ -45,7 +45,6 @@ public class UserService {
         if (userOpt.isPresent()) {
             User user = userOpt.get();
             
-            // ✅ Check password using PasswordEncoder
             if (passwordEncoder.matches(password, user.getPassword())) {
                 return true; // Login successful
             } else {

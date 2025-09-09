@@ -5,7 +5,7 @@ import { DashboardContext } from './DashboardContext';
 const ManageMembers = () => {
   const { setMemberCount } = useContext(DashboardContext);
   const [members, setMembers] = useState([]);
-  const [view, setView] = useState('list'); // 'list' | 'add' | 'update'
+  const [view, setView] = useState('list'); 
   const [selectedMember, setSelectedMember] = useState(null);
   const [formData, setFormData] = useState({ name: '', email: '', role: '' });
 

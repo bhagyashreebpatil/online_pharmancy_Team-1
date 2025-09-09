@@ -29,7 +29,7 @@ const Cart = () => {
           .then(res => res.json())
           .then(data => {
             const formatted = data.items.map(item => ({
-              id: item.id || item.drugId, // fallback if cartItem ID is missing
+              id: item.id || item.drugId, 
               name: item.drugName,
               price: item.price,
               qty: item.quantity,
@@ -71,7 +71,7 @@ const Cart = () => {
         imageUrl: item.imageUrl,
         drugId: item.drugId
       }));
-      setCart([...formatted]); // sync with backend
+      setCart([...formatted]); 
     } else {
       console.error("Failed to remove item from backend");
     }
@@ -93,12 +93,12 @@ const Cart = () => {
         imageUrl: item.imageUrl,
         drugId: item.drugId
       }));
-      setCart([...formatted]); // refresh cart state
+      setCart([...formatted]); 
     } catch (err) {
       console.error("Failed to refresh cart before navigating back", err);
     }
 
-    navigate("/user/dashboard/drugs"); // or wherever your drug listing page lives
+    navigate("/user/dashboard/drugs"); 
   };
 
   

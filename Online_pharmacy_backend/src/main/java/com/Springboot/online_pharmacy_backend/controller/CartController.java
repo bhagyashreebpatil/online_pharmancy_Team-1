@@ -42,12 +42,6 @@ public class CartController {
         return ResponseEntity.ok(cart);
     }
 
-//    @DeleteMapping("/{userId}/{drugId}")
-//    public ResponseEntity<Void> removeFromCart(@PathVariable Long userId, @PathVariable Long drugId) {
-//        cartService.removeFromCart(userId, drugId);
-//        return ResponseEntity.ok().build();
-//    }
-    
     @PostMapping("/remove")
     public ResponseEntity<?> removeFromCart(@RequestBody Map<String, Long> payload) {
         Long userId = payload.get("userId");

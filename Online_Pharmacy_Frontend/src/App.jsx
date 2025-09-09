@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { DashboardProvider } from './components/Admin/DashboardContext';
-import UserRegisterForm from './components/user/User_Register';
 import AdminLogin from './components/Admin/Admin_Login';
 import AdminRegister from './components/Admin/Admin_Register';
 import Navbar from './components/Shared/Navbar';
@@ -17,6 +16,7 @@ import ErrorBoundary from './components/User/ErrorBoundary';
 import UserLogin from './components/User/User_Login';
 import UserHome from './components/User/User_Home';
 import Payment from './components/User/Payment';
+import UserRegisterForm from './components/User/User_Register';
 
 
 const AppRoutes = () => {
