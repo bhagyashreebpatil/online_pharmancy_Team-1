@@ -2,7 +2,6 @@
     background-color: rgb(214, 236, 255);
     border-radius: 12px;
     padding: 1rem;
-    /* rgb(214, 236, 255); */
 }
 .pharmacy-img{
   width:300px;
@@ -52,7 +51,6 @@
   color: #ffd700;
 }
 
-/* Optional: Add icons using emojis or FontAwesome */
 .user-summary-card::before {
   display: block;
   font-size: 2rem;
@@ -60,11 +58,11 @@
 }
 
 .user-summary-card:nth-child(1)::before {
-  content: '👥'; /* Admin Profiles */
+  content: '👥'; 
   font-size: 60px;
 }
 
 .user-summary-card:nth-child(2)::before {
-  content: '💊'; /* Available Drugs */
+  content: '💊'; 
   font-size: 60px;
 }

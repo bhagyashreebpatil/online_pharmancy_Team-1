@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../../styles/User/User_Login.css'; // Optional: for styling
-import UserLoginPhoto from '../../media/UserLoginPhoto.jpg'; // Replace with your image path
+import '../../styles/User/User_Login.css'; 
+import UserLoginPhoto from '../../media/UserLoginPhoto.jpg';
 import { Link, useNavigate } from 'react-router-dom';
 
 
@@ -29,7 +29,6 @@ const UserLogin = () => {
     }
     
     catch (error) {
-    // If backend returns 401 Unauthorized
     if (error.response && error.response.status === 401) {
       alert('❌ Invalid credentials');
     } else {
@@ -63,13 +62,6 @@ const UserLogin = () => {
         />
 
         <button type="submit">Login</button>
-        {/* <div style={{ marginTop: "1rem", textAlign: "center" }}>
-          <span>Don't have an account? </span>
-          <Link to="/user/register" style={{ color: "#007bff", textDecoration: "none" }}>
-            Sign up
-          </Link>
-        </div> */}
-
       </form>
     </div>
     </>

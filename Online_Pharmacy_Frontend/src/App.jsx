@@ -10,18 +10,13 @@ import ManageMembers from './components/Admin/Manage_Members';
 import ManageDrugs from './components/Admin/Manage_Drugs';
 import AdminHome from './components/Admin/AdminHome';
 import UserDrugs from './components/User/User_Drugs';
-import UserPayment from './components/User/User_Payment';
 import UserDashboard from './components/User/User_Dashboard';
 import Footer from './components/Shared/Footer';
 import Cart from './components/User/Cart';
 import ErrorBoundary from './components/User/ErrorBoundary';
 import UserLogin from './components/User/User_Login';
-import AdminProfile from './components/Admin/Admin_Profile';
-import UserProfile from './components/User/User_Profile';
 import UserHome from './components/User/User_Home';
 import Payment from './components/User/Payment';
-
-
 
 
 const AppRoutes = () => {
@@ -34,9 +29,7 @@ const AppRoutes = () => {
     '/user/register',
     '/'
   ];
-
   const shouldShowNavbar = showNavbarRoutes.includes(location.pathname);
-
   return (
     <>
       {shouldShowNavbar && <Navbar />}
@@ -48,15 +41,12 @@ const AppRoutes = () => {
         <Route path="/" element={<UserLogin />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />}>
           <Route index element={<AdminHome />} />
-          <Route path="profile" element={<AdminProfile />} />
           <Route path="manage-members" element={<ManageMembers />} />
           <Route path="manage-drugs" element={<ManageDrugs />} />
         </Route>
         <Route path="/user/dashboard" element={<UserDashboard/>}>
           <Route index element={<UserHome />} />
-          <Route path="profile" element={<UserProfile />} />
           <Route path="drugs" element={<UserDrugs />} />
-          <Route path="payment" element={<UserPayment />} />
           <Route path="cart" element={
             <ErrorBoundary>
               <Cart />
@@ -69,8 +59,6 @@ const AppRoutes = () => {
     </>
   );
 };
-
-// Add other imports like AdminLogin, AdminRegister if needed
 
 function App() {
 

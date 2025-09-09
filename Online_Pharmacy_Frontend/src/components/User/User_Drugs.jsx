@@ -12,7 +12,6 @@ const UserDrugs = () => {
   const user = JSON.parse(localStorage.getItem('user'));
   const userId = user?.id;
 
-
   useEffect(() => {
     fetch('http://localhost:5000/api/user/drugs')
       .then(res => res.json())
@@ -20,24 +19,27 @@ const UserDrugs = () => {
       .catch(err => console.error('Failed to fetch drugs:', err));
   }, []);
 
-  // useEffect(() => {
-  // // Try loading from localStorage first
-  //   const savedCart = localStorage.getItem('userCart');
-  //   if (savedCart) {
-  //     setCart(JSON.parse(savedCart));
-  //   } else {
-  //     // Fallback to backend fetch
-  //     fetch(`http://localhost:5000/api/user/cart/101`)
-  //       .then(res => res.json())
-  //       .then(data => setCart(data.items))
-  //       .catch(err => console.error('Failed to load cart:', err));
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (!userId) return;
+    const fetchCart = async () => {
+      try {
+        const res = await fetch(`http://localhost:5000/api/user/cart/${userId}`);
+        const data = await res.json();
+        const restoredCart = data.items.map(item => ({
+          drugId: item.drugId,
+          name: item.drugName,
+          price: item.price,
+          qty: item.quantity,
+          imageUrl: item.imageUrl
+        }));
+        setCart([...restoredCart]); // force re-render
+      } catch (err) {
+        console.error('Failed to load cart:', err);
+      }
+    };
 
-  // useEffect(() => {
-  //   // Save cart to localStorage whenever it changes
-  //   localStorage.setItem('userCart', JSON.stringify(cart));
-  // }, [cart]);
+    fetchCart();
+  }, [userId]); 
 
   const handleAddToCart = async (drug) => {
     const payload = {
@@ -56,21 +58,49 @@ const UserDrugs = () => {
       const message = await response.text();
 
       if (response.ok) {
-        if (!cart.find(item => item.drugId === drug.id)) {
-          // setCart([...cart, { ...drug, qty: 1 }]);
-          setCart([...cart, { ...drug, drugId: drug.id, qty: 1 }]);
-          alert(`Response: ${message}`);
+        const alreadyInCart = cart.find(item => item.drugId === drug.id);
+        if (!alreadyInCart) {
+          setCart([...cart, {
+            drugId: drug.id,
+            name: drug.name,
+            price: drug.price,
+            qty: 1,
+            imageUrl: drug.imageUrl
+          }]);
         }
+        alert(`✅ ${drug.name} added to cart!`);
       } else {
-        alert('Failed to add drug to cart.');
+        alert('❌ Failed to add drug to cart.');
       }
     } catch (err) {
       console.error('Error adding to cart:', err);
     }
   };
- 
-  const handleRemoveFromCart = (id) => {
-    setCart(cart.filter(item => item.id !== id));
+
+  const handleRemoveFromCart = async (drugId) => {
+    try {
+      const response = await fetch('http://localhost:5000/api/user/cart/remove', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userId, drugId })
+      });
+
+      if (response.ok) {
+        const updatedCart = await response.json();
+        const normalizedCart = updatedCart.items.map(item => ({
+          drugId: item.drugId,
+          name: item.drugName,
+          price: item.price,
+          qty: item.quantity,
+          imageUrl: item.imageUrl
+        }));
+        setCart(normalizedCart);
+      } else {
+        alert('Failed to remove item from cart.');
+      }
+    } catch (err) {
+      console.error('Error removing from cart:', err);
+    }
   };
 
   const filteredDrugs = drugs.filter(drug =>
@@ -91,10 +121,10 @@ const UserDrugs = () => {
           {cart.length === 0 ? (
             <p className='cart-empty'>Your cart is empty.</p>
           ) : (
-            cart.map(item => (
-              <div key={item.id} className="cart-item">
+            cart.map((item, index) => (
+              <div key={`${item.drugId}-${index}`} className="cart-item">
                 <span>{item.name} - ₹{item.price}</span>
-                <button onClick={() => handleRemoveFromCart(item.id)}>❌</button>
+                <button onClick={() => handleRemoveFromCart(item.drugId)}>❌Remove</button>
               </div>
             ))
           )}
@@ -125,4 +155,3 @@ const UserDrugs = () => {
 };
 
 export default UserDrugs;
-

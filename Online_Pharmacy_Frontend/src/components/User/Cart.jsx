@@ -24,20 +24,7 @@ const Cart = () => {
 
     useEffect(() => {
       if (userId) {
-        // fetch(`http://localhost:5000/api/cart/${userId}`)
-        //   .then(res => res.json())
-        //   .then(data => {
-        //     const formatted = data.map(item => ({
-        //       id: item.id,
-        //       name: item.drug?.name || "Unknown",
-        //       price: item.drug?.price || 0,
-        //       qty: item.quantity,
-        //       type: item.drug?.type || "Tablet",
-        //       imageUrl: item.drug?.imageUrl || "/default-drug.png"
-        //     }));
-        //     setCart(formatted);
-        //   })
-        //   .catch(err => console.error("Failed to fetch cart", err));
+        
         fetch(`http://localhost:5000/api/cart/${userId}`)
           .then(res => res.json())
           .then(data => {
@@ -58,22 +45,64 @@ const Cart = () => {
 
   
   const updateQty = (id, newQty) => {
-    const qty = Math.max(1, newQty); // prevent 0 or negative
+    const qty = Math.max(1, newQty); 
     const updated = cart.map(item =>
       item.id === id ? { ...item, qty } : item
     );
     setCart(updated);
   };
 
-  // ❌ Remove item from cart
-  const removeItem = (id) => {
-    const updated = cart.filter(item => item.id !== id);
-    setCart(updated);
+  const removeItem = async (drugId) => {
+  try {
+    const response = await fetch('http://localhost:5000/api/user/cart/remove', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId, drugId })
+    });
+
+    if (response.ok) {
+      const updatedCart = await response.json();
+      const formatted = updatedCart.items.map(item => ({
+        id: item.id || item.drugId,
+        name: item.drugName,
+        price: item.price,
+        qty: item.quantity,
+        type: item.type,
+        imageUrl: item.imageUrl,
+        drugId: item.drugId
+      }));
+      setCart([...formatted]); // sync with backend
+    } else {
+      console.error("Failed to remove item from backend");
+    }
+  } catch (err) {
+    console.error("Error removing item:", err);
+  }
+};
+
+  const handleCancel = async () => {
+    try {
+      const res = await fetch(`http://localhost:5000/api/cart/${userId}`);
+      const data = await res.json();
+      const formatted = data.items.map(item => ({
+        id: item.id || item.drugId,
+        name: item.drugName,
+        price: item.price,
+        qty: item.quantity,
+        type: item.type,
+        imageUrl: item.imageUrl,
+        drugId: item.drugId
+      }));
+      setCart([...formatted]); // refresh cart state
+    } catch (err) {
+      console.error("Failed to refresh cart before navigating back", err);
+    }
+
+    navigate("/user/dashboard/drugs"); // or wherever your drug listing page lives
   };
+
   
-
   return (
-
       <div className="cart-page">
         <h2 className='cart-headline'>🛒 Your Cart</h2>
         {Array.isArray(cart) && cart.length === 0 ? (
@@ -104,7 +133,9 @@ const Cart = () => {
 
             <div className="cart-total">
               <h3>Total Amount: ₹{total}</h3>
+              <button className="cancel-btn" onClick={handleCancel}>Cancel</button>
               <button className="checkout-btn" onClick={() => navigate("/user/dashboard/payment-user")}>Proceed to Payment</button>
+
             </div>
           </div>
         )}
