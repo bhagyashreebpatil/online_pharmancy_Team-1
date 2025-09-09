@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-=======
-// // import React from 'react';
-// // import AdminSidebar from './Admin_Sidebar';
-// // import '../../styles/Admin/Admin_Dashboard.css';
-// // import { Outlet } from 'react-router-dom';
-
-// // const AdminDashboard = () => {
-// //   return (
-// //     <div className="admin-dashboard">
-// //      <AdminSidebar />
-// //       <main className="admin-content1">
-// //         <Outlet />
-// //       </main>
-
-
-// //     </div>
-// //   );
-// // };
-
-// // export default AdminDashboard;
 
 // import React, { useEffect, useState } from 'react';
 // import AdminSidebar from './Admin_Sidebar';
@@ -63,7 +42,7 @@
 
 // export default AdminDashboard;
 
->>>>>>> 73c11c39d08b33b52e962689625cd87f7349c47c
+
 import React, { useEffect, useState } from 'react';
 import AdminSidebar from './Admin_Sidebar';
 import '../../styles/Admin/Admin_Dashboard.css';
@@ -75,9 +54,7 @@ const AdminDashboard = () => {
   const [drugCount, setDrugCount] = useState(0);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-<<<<<<< HEAD
-    
+  useEffect(() => {    
     fetch('http://localhost:5000/api/admins')
       .then(res => res.json())
       .then(data => setAdminCount(data.length))
@@ -92,7 +69,7 @@ const AdminDashboard = () => {
       .then(res => res.json())
       .then(data => setDrugCount(data.length))
       .catch(err => console.error('Failed to fetch drugs:', err));
-=======
+
     const token = localStorage.getItem('token');
 
     Promise.all([
@@ -111,7 +88,7 @@ const AdminDashboard = () => {
     ])
     .catch(err => console.error('Dashboard fetch error:', err))
     .finally(() => setLoading(false));
->>>>>>> 73c11c39d08b33b52e962689625cd87f7349c47c
+
   }, []);
 
   if (loading) {
@@ -122,12 +99,7 @@ const AdminDashboard = () => {
     <div className="admin-dashboard">
       <AdminSidebar />
       <main className="admin-content1">
-<<<<<<< HEAD
         <Outlet context={{ adminCount, userCount, drugCount }} />
-=======
-        {/* 🔄 Pass counts to nested routes */}
-        <Outlet context={{ adminCount, memberCount, drugCount }} />
->>>>>>> 73c11c39d08b33b52e962689625cd87f7349c47c
       </main>
     </div>
   );
