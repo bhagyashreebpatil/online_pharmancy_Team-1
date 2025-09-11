@@ -1,0 +1,67 @@
+.admin-login-photo{
+    width: 100%;
+    height:300px;
+    object-fit: cover;
+}
+
+.admin-login-container {
+    background: rgb(255, 254, 254);
+    padding: 40px 30px;
+    margin: 40px auto;
+    height: 350px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(92, 91, 91, 0.842);
+    width: 500px;
+    text-align: center;
+}
+
+.admin-login-container img {
+    width: 200px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.admin-login-container h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.admin-login-container
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 10px;
+    border: 1px solid #c5c0c0;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    
+}
+
+.admin-login-container input:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+.admin-login-container button {
+    width: 100%;
+    padding: 12px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    
+}
+
+.admin-login-container button:hover {
+    background: #2980b9;
+}
